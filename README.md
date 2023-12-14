@@ -22,6 +22,42 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
+## How to run the Project
+
+- Run RabbitMQ and PostgreSQL instance `docker-compose up -d`
+- This will allow you to navigate to `http:localhost:15672` (user and password: `guest`) to see the instance
+- Go to api-gateway folder, install dependencies with `npm i` and run the process with `npm run start:dev`
+- Go to microservices folder, install dependencies with `npm i` and run the process with `npm run start:dev`
+
+```
+POST http://localhost:3000/orders
+{
+    "customer_name": "Sofia Henao",
+    "phone_customer": "30033201236",
+    "price_order":15000,
+    "order_detail": {
+        "name": "Mr. Lee",
+        "identifier": "984e0f54-64dc-15T3-e348-16942gs5arn5",
+        "menus": [
+            {
+                "name": "Sushi"
+            }
+        ]
+    }
+}
+```
+
+## Used Technology
+- NodeJS
+- PostgreSQL
+- RabbitMQ
+- NestJS
+- Docker
+
+## Diagram application
+
+![alt text](https://labsstoragedev.blob.core.windows.net/labspublic/eFood.png)
+
 ## Description
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.

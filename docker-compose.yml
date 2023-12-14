@@ -1,0 +1,24 @@
+version: '3.6'
+
+services:
+  nestjs-rabbitmq:
+    privileged: true
+    container_name: rabbitmq
+    image: rabbitmq:3-management
+    ports:
+      - '5672:5672'
+      - '15672:15672'
+  postgres_db:
+    image: postgres:latest
+    container_name: PostgresCont 
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres123
+    ports:
+      - '5432:5432'
+  volumes:
+    - postgres_db:/var/lib/postgresql/data
+volumes:
+  postgres_db:
+    driver: local    
